@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'day.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -7,42 +8,45 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'What I Did Wrong Today',
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 40, top: 40, right: 40),
+        color: Colors.blueGrey[50],
+        padding: EdgeInsets.only(left: 40, top: 40, right: 40),
         child: GridView.count(
           crossAxisCount: 7,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
           children: List.generate(31, (index) {
             return Center(
-              child: Container(
-                margin: const EdgeInsets.all(10.0),
-                padding: const EdgeInsets.all(6.0),
-                child: Center(
-                  child: Text(
-                    '${index + 1}',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+              child: GestureDetector(
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      '${index + 1}',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: Colors.blueGrey,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
                 ),
-                decoration: new BoxDecoration(
-                  color: Colors.blueGrey,
-                  shape: BoxShape.circle,
-                ),
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => DayPage()));
+
+                  print("taped ${index + 1}");
+                },
               ),
             );
           }),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Text('New Habit');
-        },
-        tooltip: 'Increment Counter',
-        child: const Icon(Icons.add),
       ),
     );
   }
