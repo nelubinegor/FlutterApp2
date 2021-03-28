@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'day.dart';
 
 int badStuff = 4;
+int monthlyStuff = 135;
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,13 +32,61 @@ class HomePage extends StatelessWidget {
                       child: GestureDetector(
                         child: Container(
                           child: Center(
-                            child: Text(
-                              '${index + 1}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                color: Colors.blueGrey,
-                                fontSize: 16,
-                              ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '${index + 1}',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.blueGrey,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[100],
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8.0)),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[200],
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8.0)),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[300],
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8.0)),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[400],
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8.0)),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                           decoration: new BoxDecoration(
@@ -64,7 +113,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "WOW, You've done a lot of shit today",
+                    "Wow, You've done a lot of shit today",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.blueGrey,
@@ -75,12 +124,19 @@ class HomePage extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    "To be Exact, you do $badStuff bad things on average every day",
+                    "$badStuff bad things on average every day",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.blueGrey,
                       fontSize: 24,
                     ),
-                  )
+                  ),
+                  Text(
+                    "$monthlyStuff bad things this month",
+                    style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 24,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -88,5 +144,12 @@ class HomePage extends StatelessWidget {
         ),
       ]),
     );
+  }
+}
+
+class Dot extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
