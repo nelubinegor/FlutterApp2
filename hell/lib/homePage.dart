@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'day.dart';
+//import 'day.dart';
+import 'day_02.dart';
 
 int badStuff = 4;
 int monthlyStuff = 135;
@@ -45,47 +46,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 6),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      height: 10,
-                                      width: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red[100],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(8.0)),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 10,
-                                      width: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red[200],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(8.0)),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 10,
-                                      width: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red[300],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(8.0)),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 10,
-                                      width: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red[400],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(8.0)),
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                DotBar(),
                               ],
                             ),
                           ),
@@ -97,7 +58,7 @@ class HomePage extends StatelessWidget {
                         ),
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => DayPage()));
+                              builder: (context) => BadList()));
 
                           print("taped ${index + 1}");
                         },
@@ -113,10 +74,11 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Wow, You've done a lot of shit today",
+                    "Wow, You've done a lot of shit this day",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.blueGrey,
+                      fontWeight: FontWeight.w800,
                       fontSize: 32,
                     ),
                   ),
@@ -147,9 +109,54 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Dot extends StatelessWidget {
+class DotBar extends StatefulWidget {
+  @override
+  _DotBarState createState() => _DotBarState();
+}
+
+class _DotBarState extends State<DotBar> {
+  bool show1 = true;
+  bool show2 = true;
+  bool show3 = true;
+  bool show4 = false;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+            color: (show1 ? Colors.red[100] : Color.fromRGBO(0, 0, 0, 0.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+        ),
+        Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+            color: (show2 ? Colors.red[200] : Color.fromRGBO(0, 0, 0, 0.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+        ),
+        Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+            color: (show3 ? Colors.red[300] : Color.fromRGBO(0, 0, 0, 0.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+        ),
+        Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+            color: (show4 ? Colors.red[400] : Color.fromRGBO(0, 0, 0, 0.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          ),
+        )
+      ],
+    );
   }
 }
