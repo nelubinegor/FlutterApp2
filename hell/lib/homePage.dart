@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text(
           'What I Did Wrong Today',
           textAlign: TextAlign.left,
@@ -77,7 +78,7 @@ class HomePage extends StatelessWidget {
                     "Wow, You've done a lot of shit this day",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.blueGrey,
+                      color: Colors.grey[400],
                       fontWeight: FontWeight.w800,
                       fontSize: 32,
                     ),
@@ -118,42 +119,38 @@ class _DotBarState extends State<DotBar> {
   bool show1 = true;
   bool show2 = true;
   bool show3 = true;
-  bool show4 = false;
+  bool show4 = true;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: 10,
-          width: 10,
+          height: 6,
+          width: 6,
           decoration: BoxDecoration(
             color: (show1 ? Colors.red[100] : Color.fromRGBO(0, 0, 0, 0.0)),
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
         ),
         Container(
-          height: 10,
-          width: 10,
+          height: 6,
+          width: 6,
           decoration: BoxDecoration(
             color: (show2 ? Colors.red[200] : Color.fromRGBO(0, 0, 0, 0.0)),
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
         ),
         Container(
-          height: 10,
-          width: 10,
+          height: 6,
+          width: 6,
           decoration: BoxDecoration(
             color: (show3 ? Colors.red[300] : Color.fromRGBO(0, 0, 0, 0.0)),
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
         ),
         Container(
-          height: 10,
-          width: 10,
+          height: 6,
+          width: 6,
           decoration: BoxDecoration(
             color: (show4 ? Colors.red[400] : Color.fromRGBO(0, 0, 0, 0.0)),
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
         )
       ],

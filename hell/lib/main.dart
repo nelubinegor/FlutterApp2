@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'day.dart';
 //import 'day_02.dart';
 import 'homePage.dart';
+import 'intro.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blueGrey,
         accentColor: Colors.red,
       ),
-      home: HomePage(),
+      home: Intro(),
     );
   }
 }
